@@ -1,10 +1,10 @@
 # ⚓ Nano Harbor
 
+## [▶ Play Nano Harbor](https://maomaxgame.github.io/Nano-Harbor/)
+
 ### Little boats. Busy waters. Your harbor.
 
-[![Nano Harbor — an illustrated crescent bay with tiny boats, pastel docks, and a lighthouse](./docs/deploy-banner.png)](https://maomaxgame.github.io/Nano-Harbor/)
-
-## [▶ Play Nano Harbor](https://maomaxgame.github.io/Nano-Harbor/)
+[![Nano Harbor — an illustrated crescent bay with tiny boats, pastel docks, and a lighthouse](./docs/deploy-banner-compressed.png)](https://maomaxgame.github.io/Nano-Harbor/)
 
 **Free to play in your browser. No download. No account.**
 
