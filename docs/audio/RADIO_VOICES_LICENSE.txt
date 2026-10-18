@@ -1,0 +1,86 @@
+NANO HARBOR — BUNDLED OFFLINE RADIO VOICES
+
+Files / original game phrases:
+  radio-voice-contact.mp3          "On channel."
+  radio-voice-acknowledge.mp3      "Copy that!"
+  radio-voice-acknowledge-alt.mp3  "Roger that!"
+  radio-voice-reject.mp3           "Cannot reach that point, officer."
+  radio-voice-repair.mp3           "Aye aye, officer."
+
+VOICE MODEL AND DATA
+
+Generated locally with Piper 1.8.0 and Bryce Beattie's en_US-norman-medium
+male US English neural voice. The model creator lists Norman's license as
+"public domain" and states that it was trained from scratch on LibriVox
+recordings. The model-specific card likewise identifies public-domain data.
+The creator imposes no separate restrictive model license on Norman.
+
+Primary creator/model license source (accessed 2026-10-18):
+https://brycebeattie.com/files/tts/
+Model card:
+https://huggingface.co/rhasspy/piper-voices/blob/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/norman/medium/MODEL_CARD
+LibriVox public-domain information:
+https://librivox.org/pages/public-domain/
+
+Exact generation inputs:
+  Piper: 1.8.0
+  Voice repository revision: c10ece1aade47bb51c153c893d14e5bf8e5b7117
+  Model: https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/norman/medium/en_US-norman-medium.onnx
+  SHA-256: b9739443232a80a59c7d18810dd856899bf16a7964725f5ab81ea49b1351cb71
+  Config: https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/norman/medium/en_US-norman-medium.onnx.json
+  SHA-256: 6c2db7f558a4a8deb9fe822583c1c5105f6c4e834dd0f9de8ad17a888ee9fe1d
+
+PROCESSING AND REPRODUCTION
+
+scripts/create-radio-voices.py checks the model/config hashes and generates
+these original phrases at the model's normal pace (no tempo or pitch change).
+Modifications to the synthesized waveform: edge silence/breath trimming with
+60 ms consonant padding, 180–3600 Hz filtering, gentle compression, peak
+normalization, and mono 24 kHz / 64 kbps MP3 encoding with ffmpeg/libmp3lame.
+No added hiss. ONNX Runtime's generation seed is 7. The script checks the
+8-second / 80,000-byte voice budget before replacing any game assets.
+
+Developer setup lives outside the repository; see the generator docstring.
+Download both pinned model/config URLs above before running the script.
+Only the five finished MP3 files ship with the game. No voice model, neural
+runtime, Python package, system voice, browser speech service, API key, or
+external synthesis service is used by the frontend. Generation runs locally
+with ONNX Runtime telemetry disabled.
+
+BUILD-TIME ENGINE LICENSE
+
+Piper 1.8.0 is GPL-3.0-or-later; it is developer tooling and is not bundled in
+the frontend. The engine license is distinct from Norman's public-domain
+model/data. GPL section 2 covers generated output only when its contents
+constitute a covered work; it does not automatically license every output.
+
+Engine source:
+https://github.com/OHF-Voice/piper1-gpl/tree/639388b6317fc4731e91d53da42aea68fd4166ff
+Engine license:
+https://github.com/OHF-Voice/piper1-gpl/blob/639388b6317fc4731e91d53da42aea68fd4166ff/COPYING
+Package:
+https://pypi.org/project/piper-tts/1.8.0/
+
+Attribution identifies provenance only and does not imply endorsement.
+These clips replace the earlier Flite RMS output; Flite is no longer used.
+
+UPSTREAM NORMAN MODEL CARD (unmodified)
+======================================
+
+# Model card for norman (medium)
+
+* Language: en_US (English, United States)
+* Speakers: 1
+* Quality: medium
+* Samplerate: 22,050Hz
+
+## Dataset
+
+* URL: https://librivox.org
+* License: public domain
+
+## Training
+
+See: https://brycebeattie.com/files/tts/
+
+US English male voice. Single Speaker. Trained from scratch on medium quality settings for 1200 epochs. I put together the dataset, which ended up with about 15.5 hours of recordings. All recordings came from LibriVox.org. I forgot to save the ckpt file on this one, sorry.
