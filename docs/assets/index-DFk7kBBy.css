@@ -1,1 +1,0 @@
-:root{font-family:system-ui,sans-serif;color-scheme:dark;background:#0b222e}*{box-sizing:border-box}html,body,#app{margin:0;width:100%;height:100%;overflow:hidden}canvas{display:block;width:100%;height:100dvh;touch-action:none;outline:none}canvas:focus-visible{outline:2px solid #ffdc95;outline-offset:-2px}
