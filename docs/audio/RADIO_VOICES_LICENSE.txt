@@ -2,10 +2,19 @@ NANO HARBOR — BUNDLED OFFLINE RADIO VOICES
 
 Files / original game phrases:
   radio-voice-contact.mp3          "On channel."
+  radio-voice-contact-2.mp3        "Standing by."
+  radio-voice-contact-3.mp3        "Ready for orders."
+  radio-voice-contact-4.mp3        "Go ahead."
+  radio-voice-contact-5.mp3        "Listening."
   radio-voice-acknowledge.mp3      "Copy that!"
   radio-voice-acknowledge-alt.mp3  "Roger that!"
+  radio-voice-acknowledge-3.mp3    "Understood."
+  radio-voice-acknowledge-4.mp3    "Orders received."
+  radio-voice-acknowledge-5.mp3    "Will do."
   radio-voice-reject.mp3           "Cannot reach that point, officer."
   radio-voice-repair.mp3           "Aye aye, officer."
+  radio-voice-repair-2.mp3         "On it."
+  radio-voice-repair-3.mp3         "Right away."
 
 VOICE MODEL AND DATA
 
@@ -38,11 +47,12 @@ Modifications to the synthesized waveform: edge silence/breath trimming with
 60 ms consonant padding, 180–3600 Hz filtering, gentle compression, peak
 normalization, and mono 24 kHz / 64 kbps MP3 encoding with ffmpeg/libmp3lame.
 No added hiss. ONNX Runtime's generation seed is 7. The script checks the
-8-second / 80,000-byte voice budget before replacing any game assets.
+16-second / 145,000-byte voice-only budget before replacing any game assets.
+Stage output and run browser audio checks for the overall 64 MiB cache limit.
 
 Developer setup lives outside the repository; see the generator docstring.
 Download both pinned model/config URLs above before running the script.
-Only the five finished MP3 files ship with the game. No voice model, neural
+Only the fourteen finished MP3 files ship with the game. No voice model, neural
 runtime, Python package, system voice, browser speech service, API key, or
 external synthesis service is used by the frontend. Generation runs locally
 with ONNX Runtime telemetry disabled.
