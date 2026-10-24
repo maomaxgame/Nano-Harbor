@@ -41,7 +41,7 @@ The response calls combine a small amount of seeded receiver static with sine to
 
 Menu click, validation and cancellation feedback uses locally synthesized sine tones through the existing Web Audio envelope. These effects contain no recordings, third-party samples or added bundled assets. Validation rises from 660 to 990 Hz; cancellation falls from 660 to 330 Hz; click is a quiet 900 Hz pulse. Each button press replaces the previous UI cue.
 
-Fourteen clips were generated offline with Piper 1.8.0 and Bryce Beattie's public-domain Norman male English voice: five original clips on 2026-10-18 and nine added variants on 2026-10-19. Model revision, hashes, primary sources and build-time engine licensing are recorded in [RADIO_VOICES_LICENSE.txt](RADIO_VOICES_LICENSE.txt). The user auditioned and approved the original voice. No engine or voice model is included in the frontend.
+Twenty clips were generated offline with Piper 1.8.0 and Bryce Beattie's public-domain Norman male English voice: five original clips on 2026-10-18, nine added variants on 2026-10-19, and six added variants on 2026-10-23. Model revision, hashes, primary sources and build-time engine licensing are recorded in [RADIO_VOICES_LICENSE.txt](RADIO_VOICES_LICENSE.txt). The user auditioned and approved the original voice. No engine or voice model is included in the frontend.
 
 | File | Spoken line | Duration |
 | --- | --- | --- |
@@ -56,10 +56,16 @@ Fourteen clips were generated offline with Piper 1.8.0 and Bryce Beattie's publi
 | radio-voice-acknowledge-4.mp3 | Orders received. | 0.850 s |
 | radio-voice-acknowledge-5.mp3 | Will do. | 0.650 s |
 | radio-voice-reject.mp3 | Cannot reach that point, officer. | 2.110 s |
+| radio-voice-reject-2.mp3 | Route blocked. | 1.480 s |
+| radio-voice-reject-3.mp3 | No safe passage. | 1.140 s |
+| radio-voice-reject-4.mp3 | Unable to proceed. | 0.990 s |
+| radio-voice-reject-5.mp3 | Need another route. | 0.860 s |
 | radio-voice-repair.mp3 | Aye aye, officer. | 1.950 s |
 | radio-voice-repair-2.mp3 | On it. | 0.450 s |
 | radio-voice-repair-3.mp3 | Right away. | 0.860 s |
+| radio-voice-repair-4.mp3 | Crew ready. | 0.770 s |
+| radio-voice-repair-5.mp3 | At your service. | 0.830 s |
 
-Reproduce with the temporary Piper environment and pinned local model described in `scripts/create-radio-voices.py`; generation itself needs no network. Processing uses a 180–3600 Hz radio band, gentle compression, edge-silence/breath trimming with consonant padding, and normalization before mono 24 kHz MP3 encoding. Speaking rate and pitch are unchanged; no hiss is added. The generator validates its voice-only sixteen-second / 145,000-byte budget before replacing files. Merchant variants were generated with `--output-dir /tmp/nano-radio-variants`, repair variants with `--output-dir /tmp/nano-repair-variants`; only newly added files were copied into the game, preserving all previous recordings. Synthesis durations can vary between tooling versions. The voice-only allowance does not guarantee the overall 64 MiB decoded-cache limit: always stage regeneration and check the full browser audio budget before replacing existing recordings.
+Reproduce with the temporary Piper environment and pinned local model described in `scripts/create-radio-voices.py`; generation itself needs no network. Processing uses a 180–3600 Hz radio band, gentle compression, edge-silence/breath trimming with consonant padding, and normalization before mono 24 kHz MP3 encoding. Speaking rate and pitch are unchanged; no hiss is added. The generator validates its voice-only 24-second / 200,000-byte budget before replacing files. Stage generation in a temporary output directory and copy only new variants into the game, preserving previous recordings. Synthesis durations can vary between tooling versions. The voice-only allowance does not guarantee the overall 64 MiB decoded-cache limit: check the full browser audio budget before replacing existing recordings.
 
-Only the finished clips ship with the game. Runtime uses local Web Audio buffers, with no browser speech service, external TTS API or voice model download. Captions retain vessel IDs and full order details. The fourteen clips total 14.100 seconds, 122,742 compressed bytes and approximately 2.582 MiB decoded at 48 kHz. All 49 assets total approximately 63.904 MiB decoded, below the existing 64 MiB cache limit.
+Only the finished clips ship with the game. Runtime uses local Web Audio buffers, with no browser speech service, external TTS API or voice model download. Captions retain vessel IDs and full order details. The twenty clips total 20.170 seconds and 175,620 compressed bytes. The mixer decodes at the assets’ native 24 kHz; all 55 assets total approximately 32.508 MiB decoded, below the existing 64 MiB cache limit. The six additions total 52,878 bytes; background music remains two 60-second mono MP3 stems (480,621 bytes each).
