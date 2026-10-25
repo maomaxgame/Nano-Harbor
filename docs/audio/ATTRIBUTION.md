@@ -20,7 +20,7 @@ Mono one-shots: bird-1.mp3, bird-2.mp3, bird-3.mp3, thunder-1.mp3, thunder-2.mp3
 
 Mono music stems (60 seconds): music-calm.mp3, music-tension.mp3. Both share four slowly overlapping suspended chords with a common clock and two-second loop crossfades. Calm uses warm, gently breathing pads; tension adds a subdued low register. There are no bells, lead melody or insistent beat. Both peaks are limited to 0.24 before runtime volume controls.
 
-Reproduce: `python3 scripts/create-audio.py` (Python standard library and ffmpeg with libmp3lame). Encoded budget 8 MiB; decoded cache limit 64 MiB enforced at runtime. Source sample rate 24 kHz; the browser audio context requests 48 kHz. Mono background assets leave room for operations sounds and bundled speech; the renderer reserves 3.6 MiB at that rate for those layers. Listening review on laptop speakers/headphones remains required before release; automated signal checks cannot establish comfort or realism.
+Reproduce: `python3 scripts/create-audio.py` (Python standard library and ffmpeg with libmp3lame). Procedural sounds use mono 24 kHz MP3 at 32 kbit/s, regenerated from synthesized PCM rather than recompressed from previous MP3s. Music/ambience loop lengths, crossfades and sound envelopes are unchanged. The combined audio download budget is 1,600,000 bytes; decoded cache limit 64 MiB remains enforced at runtime. Source sample rate 24 kHz; the browser audio context requests 48 kHz. Mono background assets leave room for operations sounds and bundled speech; the renderer reserves 3.6 MiB at that rate for those layers. Listening review on laptop speakers/headphones remains required before release; automated signal checks cannot establish comfort or realism.
 
 ## Coast Guard operations room
 
